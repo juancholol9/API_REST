@@ -1,9 +1,9 @@
-const PersonaReposotory = require("../repository/person.repository");
+const userReposotory = require("../repository/users.repository");
 
 const getAll = async () => {
     try {
-        const personas = await PersonaReposotory.getAll();
-        return personas || [];
+        const users = await userReposotory.getAll();
+        return users || [];
     } catch (error) {
         throw new Error(error);
     }
@@ -11,8 +11,8 @@ const getAll = async () => {
 
 const getById = async (id) => {
     try {
-        const persona = await PersonaReposotory.getById(id);
-        return persona || null;
+        const user = await userReposotory.getById(id);
+        return user || null;
     } catch (error) {
         throw new Error(error);
     }
@@ -20,17 +20,18 @@ const getById = async (id) => {
 
 const create = async (data) => {
     try {
-        const persona = await PersonaReposotory.create(data);
-        return persona || [];
+        const user = await userReposotory.create(data);
+        return user || [];
     } catch (error) {
+        console.log("User Service")
         throw new Error(error);
     }
 }
 
 const update = async (id, data) => {
     try {
-        const persona = await PersonaReposotory.update(id, data);
-        return persona || [];
+        const user = await userReposotory.update(id, data);
+        return user || [];
     } catch (error) {
         throw new Error(error);
     }
@@ -38,8 +39,8 @@ const update = async (id, data) => {
 
 const remove = async (id) => {
     try {
-        const persona = await PersonaReposotory.remove(id);
-        return persona || [];
+        const user = await userReposotory.remove(id);
+        return user || [];
     } catch (error) {
         throw new Error(error);
     }
