@@ -12,9 +12,6 @@ router.get(
     validateRequest([
         param('id').isInt().withMessage('ID must be an integer'),
     ]),
-    (request,response)=>{
-
-    },
     usersController.getUserById
 );
 
@@ -27,20 +24,13 @@ router.post(
         body('phone').isNumeric().withMessage("Ingrese un numero telefonico"),
         body('role').isString().withMessage("Ingrese")
     ]),
-
-    // (request, response) => {
-    //     console.log(response)
-    // },
     usersController.createUser
 );
 
 router.put(
     '/:id',
     validateRequest([
-        // param('id').isInt().withMessage('ID must be an integer'),
-        // body('name').optional().isString().withMessage('Name cannot be empty'),
-        // body('email').optional().isEmail().withMessage('Valid email is required'),
-        // body('age').optional().isInt({ min: 0 }).withMessage('Age must be a positive integer'),
+
     ]),
     usersController.updateUser
 );

@@ -23,7 +23,7 @@ const create = async (data) => {
         const user = await userReposotory.create(data);
         return user || [];
     } catch (error) {
-        console.log("User Service")
+        // console.log("User Service", error)
         throw new Error(error);
     }
 }
