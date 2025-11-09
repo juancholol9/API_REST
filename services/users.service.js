@@ -1,8 +1,8 @@
-const userReposotory = require("../repository/users.repository");
+const userRepository = require("../repository/users.repository");
 
 const getAll = async () => {
     try {
-        const users = await userReposotory.getAll();
+        const users = await userRepository.getAll();
         return users || [];
     } catch (error) {
         throw new Error(error);
@@ -11,26 +11,26 @@ const getAll = async () => {
 
 const getById = async (id) => {
     try {
-        const user = await userReposotory.getById(id);
+        const user = await userRepository.getById(id);
         return user || null;
     } catch (error) {
         throw new Error(error);
     }
 }
 
-const create = async (data) => {
-    try {
-        const user = await userReposotory.create(data);
-        return user || [];
-    } catch (error) {
-        // console.log("User Service", error)
-        throw new Error(error);
-    }
-}
+// const create = async (data) => {
+//     try {
+//         const user = await userRepository.create(data);
+//         return user || [];
+//     } catch (error) {
+//         // console.log("User Service", error)
+//         throw new Error(error);
+//     }
+// }
 
 const update = async (id, data) => {
     try {
-        const user = await userReposotory.update(id, data);
+        const user = await userRepository.update(id, data);
         return user || [];
     } catch (error) {
         throw new Error(error);
@@ -39,7 +39,7 @@ const update = async (id, data) => {
 
 const remove = async (id) => {
     try {
-        const user = await userReposotory.remove(id);
+        const user = await userRepository.remove(id);
         return user || [];
     } catch (error) {
         throw new Error(error);
@@ -49,7 +49,7 @@ const remove = async (id) => {
 module.exports = {
     getAll,
     getById,
-    create,
+    // create,
     update,
     remove,
 }

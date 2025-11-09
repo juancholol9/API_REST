@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator');
 const validateRequest = (validation) => async (req, res, next) => {
     await Promise.all(validation.map((validate) => validate.run(req)));
     const errors = validationResult(req);
-    
+
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }

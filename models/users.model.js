@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
+const bcrypt = require('bcrypt');
+// const { Hooks } = require("sequelize/lib/hooks");
 
 const Users = sequelize.define('Users', {
     id: {
@@ -7,8 +9,6 @@ const Users = sequelize.define('Users', {
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
-        // REMOVE THIS LINE:
-        // defaultValue: DataTypes.INTEGER
     },
     full_name: {
         type: DataTypes.STRING(150),
@@ -60,5 +60,12 @@ const Users = sequelize.define('Users', {
         }
     ]
 });
+
+Users.addHook('beforeCreate', async (user, options) =>{
+    const salt = await bcrypt.genSalt();
+    user.password_hash = await bcrypt.hash(user.password_hash, salt)
+    console.log("user before getting added to the db", user)
+})
+
 
 module.exports = Users;

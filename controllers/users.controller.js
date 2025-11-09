@@ -22,16 +22,16 @@ const getUserById = async (req, res) => {
     }
 };
 
-const createUser = async (req, res) => {
-    const data = req.body;
-    try {
-        const user = await userService.create(data);
-        res.status(201).json(user);
-    } catch (error) {
-        console.log("Error en el archivo User controller", error);
-        res.status(400).json({error: error.message}); // Changed from 401 to 400
-    }
-};
+// const createUser = async (req, res) => {
+//     const data = req.body;
+//     try {
+//         const user = await userService.create(data);
+//         res.status(201).json(user);
+//     } catch (error) {
+//         console.log("Error en el archivo User controller", error);
+//         res.status(400).json({error: error.message}); // Changed from 401 to 400
+//     }
+// };
 
 const updateUser = async (req, res) => {
     try {
@@ -55,7 +55,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
     getAllUsers,
     getUserById,
-    createUser,
+    // createUser,
     updateUser,
     deleteUser,
 }

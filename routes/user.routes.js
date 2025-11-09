@@ -15,17 +15,17 @@ router.get(
     usersController.getUserById
 );
 
-router.post(
-    '/',
-    validateRequest([
-        body('full_name').isString().withMessage('El nombre completo debe de ser caracteres'),
-        body('email').isEmail().withMessage('Ingrese un correo electronico valido'),
-        body('password_hash').isString().withMessage('x'),
-        body('phone').isNumeric().withMessage("Ingrese un numero telefonico"),
-        body('role').isString().withMessage("Ingrese")
-    ]),
-    usersController.createUser
-);
+// router.post(
+//     '/',
+//     validateRequest([
+//         body('full_name').isString().withMessage('El nombre completo debe de ser caracteres'),
+//         body('email').isEmail().withMessage('Ingrese un correo electronico valido'),
+//         body('password_hash').isString().withMessage('x'),
+//         body('phone').isNumeric().withMessage("Ingrese un numero telefonico"),
+//         body('role').isString().withMessage("Ingrese")
+//     ]),
+//     usersController.createUser
+// );
 
 router.put(
     '/:id',

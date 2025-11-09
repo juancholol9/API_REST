@@ -19,29 +19,29 @@ const getById = async (id) => {
     }
 }
 
-const create = async (data) => {
-    try {
-        console.log(data);
-        const user = await Users.create(data);
-        return user;
-    } catch (error) {
+// const create = async (data) => {
+//     try {
+//         console.log(data);
+//         const user = await Users.create(data);
+//         return user;
+//     } catch (error) {
 
-        // Handle Sequelize unique constraint errors
-        if (error.name === 'SequelizeUniqueConstraintError') {
-            const field = error.errors[0]?.path || 'field';
-            const value = error.errors[0]?.value || 'value';
-            throw new Error(`The ${field} '${value}' is already in use`);
-        }
+//         // Handle Sequelize unique constraint errors
+//         if (error.name === 'SequelizeUniqueConstraintError') {
+//             const field = error.errors[0]?.path || 'field';
+//             const value = error.errors[0]?.value || 'value';
+//             throw new Error(`The ${field} '${value}' is already in use`);
+//         }
 
-        // Handle Sequelize validation errors
-        if (error.name === 'SequelizeValidationError') {
-            const messages = error.errors.map(e => e.message).join(', ');
-            throw new Error(`Validation error: ${messages}`);
-        }
+//         // Handle Sequelize validation errors
+//         if (error.name === 'SequelizeValidationError') {
+//             const messages = error.errors.map(e => e.message).join(', ');
+//             throw new Error(`Validation error: ${messages}`);
+//         }
 
-        throw error;
-    }
-}
+//         throw error;
+//     }
+// }
 
 const update = async (id, data) => {
     try {
@@ -81,7 +81,7 @@ const remove = async (id) => {
 module.exports = {
     getAll,
     getById,
-    create,
+    // create,
     update,
     remove,
 };
