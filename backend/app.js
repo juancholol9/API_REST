@@ -3,6 +3,7 @@ const session = require('express-session')
 const baseRoutes = require('./routes/base.routes')
 const userRoutes = require('./routes/user.routes');
 const authRoutes = require('./routes/auth.routes')
+const cors = require('cors');
 
 const app = express();
 
@@ -29,3 +30,9 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
